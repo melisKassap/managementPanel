@@ -1,0 +1,49 @@
+@import "../colors.scss";
+
+.header-container {
+
+    color: $defaultBlack;
+
+    .header-top {
+        height: 50px;
+        background-color: $basicColor3;
+        color: $defaultWhite;
+    }
+
+    .header-menu {
+
+        border-radius: 14px;
+        background-color: $basicColor4;
+        align-items: center;
+        color: $defaultWhite;
+
+        .header-left-menu {}
+
+        .header-right-menu {
+            text-align: right;
+        }
+
+        .header-user-menu {
+            background: none;
+cursor: pointer;
+            border: none;
+
+            .btn {
+                color: $defaultWhite;
+            }
+
+            .avatarImage {
+                margin-right: 10px;
+                width: 30px;
+                height: 30px;
+                border: 1px solid #fff;
+                padding: 2px;
+                border-radius: 50%;
+            }
+            .user-menu-items{
+
+            }
+        }
+    }
+
+}
