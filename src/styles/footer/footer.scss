@@ -1,0 +1,11 @@
+@import "../colors.scss";
+
+footer{
+    
+    background-color: $basicColor3;
+    .footer-container{
+       color: $defaultWhite;
+       height: 50px;
+       font-size: 12px;
+    }
+}

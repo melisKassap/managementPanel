@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import adminImage from '../images/admin.png';
-import woman from '../images/woman.png';
-import man from '../images/man.png';
+import adminImage from '../../images/admin.png';
+import woman from '../../images/woman.png';
+import man from '../../images/man.png';
 export class Header extends Component {
   render() {
     return (
       <div className="header-container">
-        {/* title
-        meta tagları da bak nereye ekliyoruz */}
+       
         <div className="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center header-top w-100">
           Management Panel
         </div>
