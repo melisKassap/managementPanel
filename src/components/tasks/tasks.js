@@ -7,10 +7,10 @@ export class Tasks extends Component {
     super();
     let data = [
 
-      { t: "1", reporter: "Melis KASSAP", task: "determination of project criteria", created: "07-25-2021", priority: "Complated", status: "Critical", priorityType: "status-context status-success" },
-      { t: "2", reporter: "Jane Done", task: "popup will be made", created: "08-27-2022", priority: "Waiting for Approval", status: "Major", priorityType: "status-context status-waiting" },
-      { t: "3", reporter: "John Done", task: "analysis will be made", created: "06-27-2022", priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
-      { t: "4", reporter: "Melis KASSAP", task: "log will be written", created: "05-27-2022", priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
+      { t: "1", reporter: "Melis KASSAP", task: "determination of project criteria",assignee:"Jane Done", created: "07-25-2021", priority: "Complated", status: "Critical", priorityType: "status-context status-success" },
+      { t: "2", reporter: "Jane Done", task: "popup will be made", created: "08-27-2022", assignee:"Melis KASSAP",priority: "Waiting for Approval", status: "Major", priorityType: "status-context status-waiting" },
+      { t: "3", reporter: "John Done", task: "analysis will be made", created: "06-27-2022", assignee:"John Done",priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
+      { t: "4", reporter: "Melis KASSAP", task: "log will be written", created: "05-27-2022", assignee:"Jane Done",priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
 
     ];
 
@@ -46,6 +46,9 @@ export class Tasks extends Component {
     if (this.state.createdFilter) {
       filteredData = this.state.data.filter(dt => dt.created.toLowerCase().includes(this.state.createdFilter))
     }
+    if(this.state.assigneeFilter){
+      filteredData = this.state.data.filter(dt => dt.assignee.toLowerCase().includes(this.state.assigneeFilter))
+    }
 
     if (this.state.priorityFilter) {
       filteredData = this.state.data.filter(dt => dt.priority.toLowerCase().includes(this.state.priorityFilter))
@@ -60,7 +63,7 @@ export class Tasks extends Component {
         <div className="filter-table-container">
           <div className="filter-table ">
             <div className="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center filterTitle h-100">Filters</div>
-            <div className="col-lg-12 col-md-12 col-sm-12 col-12 filterInput">
+            <div className="table-responsive col-lg-12 col-md-12 col-sm-12 col-12 filterInput">
               <thead>
                 <tr>
 
@@ -98,6 +101,17 @@ export class Tasks extends Component {
                     />
                   </th>
                   <th scope="col">
+                    Assignee
+                    <br />
+                    <input
+                      type="text"
+                      value={this.state.assigneeFilter}
+                      onChange={(e) =>
+                        this.setState({ assigneeFilter: e.target.value })
+                      }
+                    />
+                  </th>
+                  <th scope="col">
                     Priority
                     <br />
                     <input
@@ -127,7 +141,7 @@ export class Tasks extends Component {
           </div>
         </div>
 
-        <div className="table-items-container shadow-sm p-3 mb-5  mt-5 rounded">
+        <div className="table-responsive table-items-container shadow-sm p-3 mb-5  mt-5 rounded">
           <Table>
             <thead>
               <tr>
@@ -142,6 +156,10 @@ export class Tasks extends Component {
                 </th>
                 <th scope="col">
                   Created
+
+                </th>
+                <th scope="col">
+                  Assignee
 
                 </th>
                 <th scope="col">

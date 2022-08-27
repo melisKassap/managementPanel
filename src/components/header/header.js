@@ -11,16 +11,16 @@ export class Header extends Component {
         <div className="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center header-top w-100">
           Management Panel
         </div>
-        <div className="container">
+        <div className="container no-padding">
           <div className="header-menu d-flex shadow-sm p-3 mb-4  mt-3 rounded">
             <div className="col-lg-7 col-md-7 col-sm-3 col-3 header-left-menu">
               Task List
             </div>
             <div className="col-lg-5 col-md-5 col-sm-9 col-9 d-flex align-items-center header-right-menu">
-              <div className="col-lg-4 col-md-4 col-sm-4 col-4">All Tasks</div>
+              <div className="col-lg-4 col-md-4 col-sm-4 col-3">All Tasks</div>
               <div className="col-lg-4 col-md-4 col-sm-4 col-4">Tasks</div>
 
-              <div className="col-lg-4 col-md-4 col-sm-4 col-4 dropdown header-user-menu">
+              <div className="col-lg-4 col-md-4 col-sm-4 col-5 dropdown header-user-menu">
                 <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img className="avatarImage" src={adminImage} />
                   User 1
