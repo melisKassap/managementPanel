@@ -7,14 +7,14 @@ export class Tasks extends Component {
     super();
     let data = [
 
-      { t: "1", reporter: "Melis KASSAP", task: "determination of project criteria",assignee:"Jane Done", created: "07-25-2021", priority: "Complated", status: "Critical", priorityType: "status-context status-success" },
-      { t: "2", reporter: "Jane Done", task: "popup will be made", created: "08-27-2022", assignee:"Melis KASSAP",priority: "Waiting for Approval", status: "Major", priorityType: "status-context status-waiting" },
-      { t: "3", reporter: "John Done", task: "analysis will be made", created: "06-27-2022", assignee:"John Done",priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
-      { t: "4", reporter: "Melis KASSAP", task: "log will be written", created: "05-27-2022", assignee:"Jane Done",priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
+      { t: "1", reporter: "Melis KASSAP", task: "determination of project criteria",assignee:"Jane Doe", created: "07-25-2021", priority: "Complated", status: "Critical", priorityType: "status-context status-success" },
+      { t: "2", reporter: "Jane Doe", task: "popup will be made", created: "08-27-2022", assignee:"Melis KASSAP",priority: "Waiting for Approval", status: "Major", priorityType: "status-context status-waiting" },
+      { t: "3", reporter: "John Doe", task: "analysis will be made", created: "06-27-2022", assignee:"John Doe",priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
+      { t: "4", reporter: "Melis KASSAP", task: "log will be written", created: "05-27-2022", assignee:"Jane Doe",priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
 
     ];
 
-    this.state = { data, labelFileter: null, textFilter: null, showModal: false, infoModalShow:false };
+    this.state = { data, labelFileter: null, textFilter: null, showModal: false, selectedItems:null, infoModalShow:false };
 
   }
   RemoveEachRow = (index) => {
@@ -22,11 +22,12 @@ export class Tasks extends Component {
       data: this.state.data.filter((obj, idx) => idx !== index)
     })
   }
-  editModal = () => {
-    this.setState({ showModal: !this.state.showModal })
+  editModal = (index) => {
+    this.setState({ showModal: !this.state.showModal, selectedItems:index })
+   
   }
-  infoModal = () => {
-    this.setState({ infoModalShow: !this.state.infoModalShow })
+  infoModal = (index) => {
+    this.setState({ infoModalShow: !this.state.infoModalShow, selectedItems:index })
   }
 
 
@@ -185,31 +186,21 @@ export class Tasks extends Component {
                   <td>{entry.reporter}</td>
                   <td>{entry.task}</td>
                   <td>{entry.created}</td>
+                  <td>{entry.assignee}</td>
                   <td className="d-flex align-items-center justify-content-center priorityContext"><span className={entry.priorityType}>{entry.priority}</span></td>
 
                   <td>{entry.status}</td>
 
                   <td className="cpointer infoBox"
                   >
-                    <span onClick={() => this.infoModal()}><i class="bi bi-info-circle-fill icon-size20"></i></span>
-
-                    
-                    <InfoPopUpModal
-                      show={this.state.infoModalShow}
-                      onHide={() => this.infoModal()}
-                    />
+                    <span onClick={() => this.infoModal(index)}><i className="bi bi-info-circle-fill icon-size20"></i></span>
 
                   </td>
                  
                   <td className="cpointer editBox"
                   >
-                    <span onClick={() => this.editModal()}><i className="bi bi-pen-fill icon-size20"></i></span>
+                    <span onClick={() => this.editModal(index)}><i className="bi bi-pen-fill icon-size20"></i></span>
 
-                    
-                    <EditPopUpModal
-                      show={this.state.showModal}
-                      onHide={() => this.editModal()}
-                    />
 
                   </td>
                   <td className="cpointer deleteBox" onClick={() => this.RemoveEachRow(index)}>
@@ -220,7 +211,18 @@ export class Tasks extends Component {
                  
                 </tr>
               ))}
+                <EditPopUpModal
+                      show={this.state.showModal}
+                      onHide={() => this.editModal()}
+                      id={this.state.selectedItems}
+                    />
+                     <InfoPopUpModal
+                      show={this.state.infoModalShow}
+                      onHide={() => this.infoModal()}
+                      id={this.state.selectedItems}
+                    />
             </tbody>
+            
           </Table>
         </div>
         

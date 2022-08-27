@@ -2,10 +2,11 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {useState, useEffect} from 'react';
+import EditForm from '../forms/editforms';
 function EditPopUpModal(props) {
    
     const [count, setCount] = useState(0);
-   
+   console.log(props)
     
   return (
     <Modal
@@ -20,14 +21,9 @@ function EditPopUpModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        
-        <p>
-         Edit task
-        </p>
+      <EditForm id={props.id}/>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Save</Button>
-      </Modal.Footer>
+     
     </Modal>
   );
 }
