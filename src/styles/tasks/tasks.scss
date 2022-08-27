@@ -64,10 +64,13 @@
                         background:  $basicColorPart7;
                 }
                 .deleteBox:hover i{
-                        color: $basicColorPart9;
+                        color: $basicColorPart11;
                 } 
                 .editBox:hover i{
                         color: $basicColorPart10;
+                }
+                .infoBox:hover i{
+                        color: $basicColorPart9;
                 }
         }
 

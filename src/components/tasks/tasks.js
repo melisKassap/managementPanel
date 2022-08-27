@@ -1,25 +1,36 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
+import EditPopUpModal from "../popups/editpopup";
+import InfoPopUpModal from "../popups/infopopup";
 export class Tasks extends Component {
   constructor(props) {
     super();
     let data = [
 
-      { t: "1", reporter: "Melis KASSAP", task: "determination of project criteria", created: "07-25-2021", priority: "Complated", status: "Critical",priorityType:"status-context status-success" },
-      { t: "2", reporter: "Jane Done", task: "popup will be made", created: "08-27-2022", priority: "Waiting for Approval", status: "Major",priorityType:"status-context status-waiting" },
-      { t: "3", reporter: "John Done", task: "analysis will be made", created: "06-27-2022", priority: "Incomplete", status: "Critical",priorityType:"status-context status-incomplate" },
-      { t: "4", reporter: "Melis KASSAP", task: "log will be written", created: "05-27-2022", priority: "Incomplete", status: "Critical",priorityType:"status-context status-incomplate" },
+      { t: "1", reporter: "Melis KASSAP", task: "determination of project criteria", created: "07-25-2021", priority: "Complated", status: "Critical", priorityType: "status-context status-success" },
+      { t: "2", reporter: "Jane Done", task: "popup will be made", created: "08-27-2022", priority: "Waiting for Approval", status: "Major", priorityType: "status-context status-waiting" },
+      { t: "3", reporter: "John Done", task: "analysis will be made", created: "06-27-2022", priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
+      { t: "4", reporter: "Melis KASSAP", task: "log will be written", created: "05-27-2022", priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
 
     ];
 
-    this.state = { data, labelFileter: null, textFilter: null };
+    this.state = { data, labelFileter: null, textFilter: null, showModal: false, infoModalShow:false };
+
   }
   RemoveEachRow = (index) => {
     this.setState({
       data: this.state.data.filter((obj, idx) => idx !== index)
     })
   }
- 
+  editModal = () => {
+    this.setState({ showModal: !this.state.showModal })
+  }
+  infoModal = () => {
+    this.setState({ infoModalShow: !this.state.infoModalShow })
+  }
+
+
+
   render() {
     let filteredData = this.state.data;
 
@@ -150,7 +161,7 @@ export class Tasks extends Component {
             <tbody>
               {filteredData.map((entry, index) => (
 
-                <tr>
+                <tr key={index}>
                   <th scope="row">{index}</th>
 
                   <td>{entry.reporter}</td>
@@ -160,21 +171,41 @@ export class Tasks extends Component {
 
                   <td>{entry.status}</td>
 
-                  <td className="cpointer deleteBox" onClick={() => this.RemoveEachRow(index)}>
-                    <span>
-                    <i class="bi bi-trash-fill text-default icon-size20"></i>
-                    </span>
+                  <td className="cpointer infoBox"
+                  >
+                    <span onClick={() => this.infoModal()}><i class="bi bi-info-circle-fill icon-size20"></i></span>
+
+                    
+                    <InfoPopUpModal
+                      show={this.state.infoModalShow}
+                      onHide={() => this.infoModal()}
+                    />
+
                   </td>
+                 
                   <td className="cpointer editBox"
                   >
-                    <span><i class="bi bi-pen-fill icon-size20"></i></span>
+                    <span onClick={() => this.editModal()}><i className="bi bi-pen-fill icon-size20"></i></span>
+
+                    
+                    <EditPopUpModal
+                      show={this.state.showModal}
+                      onHide={() => this.editModal()}
+                    />
+
                   </td>
+                  <td className="cpointer deleteBox" onClick={() => this.RemoveEachRow(index)}>
+                    <span>
+                      <i className="bi bi-trash-fill text-default icon-size20"></i>
+                    </span>
+                  </td>
+                 
                 </tr>
               ))}
             </tbody>
           </Table>
         </div>
-
+        
       </div>
 
     );
