@@ -1,0 +1,75 @@
+@import "../colors.scss";
+
+.task-container {
+        .filter-table-container {
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                background: $basicColor3;
+
+                .filter-table {
+                        height: 40px;
+
+                        align-items: center;
+                        color: $defaultWhite;
+
+                        .filterTitle {
+                                padding-left: 10px;
+                        }
+
+                        .filterInput {
+
+                                box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.30) !important;
+                        }
+                }
+
+                thead {
+                        border: 1px solid $basicColorPart5;
+
+                        tr {
+
+                                th {
+                                        color: $defaultBlack;
+                                        font-weight: 500;
+                                        padding: 15px 15px;
+                                }
+                        }
+
+                       
+                }
+        }
+
+        .table-items-container {
+                border-top-right-radius: 0 !important;
+                border-top-left-radius: 0 !important;
+                margin-top: 6rem !important;
+                box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.36) !important;
+                .status-context {
+                       text-align: center;
+                        padding: 4px 15px;
+                        border-radius: 14px;
+                        color: white;
+                        width: 100%;
+                }
+                tbody tr{vertical-align: middle;}
+                .priorityContext{
+                        margin: -1px;
+                }
+                .status-success{
+                        background:  $basicColorPart6;
+                }
+                .status-incomplate{
+                        background-color: $basicColorPart8;
+                }
+                .status-waiting{
+                        background:  $basicColorPart7;
+                }
+                .deleteBox:hover i{
+                        color: $basicColorPart9;
+                } 
+                .editBox:hover i{
+                        color: $basicColorPart10;
+                }
+        }
+
+
+}

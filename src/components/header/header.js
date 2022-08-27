@@ -6,12 +6,13 @@ export class Header extends Component {
   render() {
     return (
       <div className="header-container">
-       
+        {/* title
+        meta tagları da bak nereye ekliyoruz */}
         <div className="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center header-top w-100">
           Management Panel
         </div>
         <div className="container">
-          <div className="header-menu d-flex shadow-sm p-3 mb-5  mt-5 rounded">
+          <div className="header-menu d-flex shadow-sm p-3 mb-4  mt-3 rounded">
             <div className="col-lg-7 col-md-7 col-sm-3 col-3 header-left-menu">
               Task List
             </div>
