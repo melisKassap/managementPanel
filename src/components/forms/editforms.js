@@ -55,7 +55,7 @@ console.log("edit",props)
 
             </div>
            
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary submitBtn">Save</button>
         </form>
 
     );

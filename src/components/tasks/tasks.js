@@ -69,9 +69,10 @@ export class Tasks extends Component {
                 <tr>
 
                   <th scope="col">
-                    Reporter
-                    <br />
+                  
                     <input
+                    placeholder="Reporter"
+                    className="br5"
                       type="text"
                       value={this.state.reporterFilter}
                       onChange={(e) =>
@@ -80,9 +81,10 @@ export class Tasks extends Component {
                     />
                   </th>
                   <th scope="col">
-                    Task
-                    <br />
+                  
                     <input
+                     placeholder="Task"
+                      className="br5"
                       type="text"
                       value={this.state.taskFilter}
                       onChange={(e) =>
@@ -91,9 +93,10 @@ export class Tasks extends Component {
                     />
                   </th>
                   <th scope="col">
-                    Created
-                    <br />
+                   
                     <input
+                     placeholder="Created"
+                      className="br5"
                       type="text"
                       value={this.state.createdFilter}
                       onChange={(e) =>
@@ -102,9 +105,10 @@ export class Tasks extends Component {
                     />
                   </th>
                   <th scope="col">
-                    Assignee
-                    <br />
+                   
                     <input
+                      placeholder="Assignee"
+                      className="br5"
                       type="text"
                       value={this.state.assigneeFilter}
                       onChange={(e) =>
@@ -113,9 +117,10 @@ export class Tasks extends Component {
                     />
                   </th>
                   <th scope="col">
-                    Priority
-                    <br />
+                  
                     <input
+                     placeholder="Priority"
+                      className="br5"
                       type="text"
                       value={this.state.priorityFilter}
                       onChange={(e) =>
@@ -124,9 +129,10 @@ export class Tasks extends Component {
                     />
                   </th>
                   <th scope="col">
-                    Status
-                    <br />
+                    
                     <input
+                    placeholder="Status"
+                      className="br5"
                       type="text"
                       value={this.state.statusFilter}
                       onChange={(e) =>

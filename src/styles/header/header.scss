@@ -21,6 +21,16 @@
 
         .header-right-menu {
             text-align: right;
+            .headerTitle{
+                border: 2px solid #ddd;
+                padding: 6px 10px;
+                border-radius: 6px;
+               ;
+            }
+            .headerTitle:hover{
+                background-color: $basicColorPart12;
+                border-color: $basicColorPart12;
+            }
         }
 
         .header-user-menu {
