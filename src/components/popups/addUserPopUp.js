@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import {useState, useEffect} from 'react';
 import AddUserForm from '../forms/addUser';
 function AddUserPopUpModal(props) {
    

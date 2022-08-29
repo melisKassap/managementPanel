@@ -2,19 +2,13 @@ import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import EditPopUpModal from "../popups/editpopup";
 import InfoPopUpModal from "../popups/infopopup";
-export class Tasks extends Component {
+import { connect } from "react-redux";
+ class Tasks extends Component {
   constructor(props) {
     super();
-    let data = [
+   
 
-      { t: "1", reporter: "Melis KASSAP", task: "determination of project criteria",assignee:"Jane Doe", created: "07-25-2021", priority: "Complated", status: "Critical", priorityType: "status-context status-success" },
-      { t: "2", reporter: "Jane Doe", task: "popup will be made", created: "08-27-2022", assignee:"Melis KASSAP",priority: "Waiting for Approval", status: "Major", priorityType: "status-context status-waiting" },
-      { t: "3", reporter: "John Doe", task: "analysis will be made", created: "06-27-2022", assignee:"John Doe",priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
-      { t: "4", reporter: "Melis KASSAP", task: "log will be written", created: "05-27-2022", assignee:"Jane Doe",priority: "Incomplete", status: "Critical", priorityType: "status-context status-incomplate" },
-
-    ];
-
-    this.state = { data, labelFileter: null, textFilter: null, showModal: false, selectedItems:null, infoModalShow:false };
+    this.state = { data:props.taskList, labelFileter: null, textFilter: null, showModal: false, selectedItems:null, infoModalShow:false };
 
   }
   RemoveEachRow = (index) => {
@@ -237,3 +231,18 @@ export class Tasks extends Component {
     );
   }
 }
+const mapStoreProps = (store) => {
+  return {
+      taskList: store.taskList,
+
+  }
+}
+
+const mapDispatch = dispach => {
+  return {
+      getTask: () => dispach({ type: "Get_task_list", taskList: "" })
+  }
+}
+export default connect(
+  mapStoreProps, mapDispatch
+)(Tasks);

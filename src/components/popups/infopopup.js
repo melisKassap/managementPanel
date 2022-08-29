@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import {useState, useEffect} from 'react';
+import InfoForm from '../forms/info';
 function InfoPopUpModal(props) {
    
     
@@ -17,10 +17,7 @@ function InfoPopUpModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        
-        <p>
-         Info task
-        </p>
+      <InfoForm id={props.id}/>
       </Modal.Body>
      
     </Modal>

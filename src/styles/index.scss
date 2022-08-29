@@ -39,6 +39,9 @@ code {
 input{
   cursor: pointer;
 }
+.fBold{
+  font-weight: bold;
+}
 @media only screen and (max-width: 991px) {
   .titleUserName{
     display: none;

@@ -1,7 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {useState, useEffect} from 'react';
 import EditForm from '../forms/editforms';
 function EditPopUpModal(props) {
       
